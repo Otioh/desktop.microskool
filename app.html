@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Desktop Microskool</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<style>
+  .one_third{
+    background-color: white;
+    box-shadow: 0 0 20px lightgray;
+cursor: pointer;
+  }
+  a{
+    cursor: pointer;
+  }
+  dialog{
+    border:none;
+    box-shadow: 0 0 8px gray;
+    border-radius: 10px;
+    cursor: move;
+  }
+</style>
+<link rel="icon" href="http://127.0.0.1/microskool2.1/img/micro.png" type="image/png" sizes="16x16"> 
+</head>
+<body id="top">
+<div style="position: fixed;top:0;width: 100%;height: 100%;">
+<div id="holder">
+
+
+</div>
+<div id="coverLoad" style="position: fixed;top: 0;width: 100%;height: 100%;z-index: 10;background-color: whitesmoke;">
+  <center style="color: black;margin-top: 200px;">
+    Installing Microskool  <br>
+    <progress>
+  
+  </progress>
+  </center>
+  
+  </div>
+  <dialog id="loader">
+     <h style="color: rgb(83, 83, 170);font-family: monospace;font-weight: bold;">Microskool Loading</h><hr/>
+    <center>
+    Please Wait<br>
+    <progress></progress>
+  </center>
+  </dialog>
+
+  <dialog id="alert" >
+ <h style="color: rgb(83, 83, 170);font-family: monospace;font-weight: bold;">Microskool Alert</h><hr/>
+ <div id="message">
+
+ </div><br>
+  </dialog>
+
+<!-- JAVASCRIPTS -->
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="script/app.js"></script>
+<script src="script/cdn.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>

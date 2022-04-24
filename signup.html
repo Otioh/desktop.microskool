@@ -1,0 +1,97 @@
+<footer id="footer" class="hoc clear" > 
+  <fieldset>
+    <legend >Newsletter:</legend>
+    <input  type="text" value="" style="width: 300px;float: left;margin: 10px;" id="firstname" placeholder="First Name">
+    <input  type="text" value="" style="width: 300px;float: left;margin: 10px;" id="middlename" placeholder="Middle Name">
+    <input  type="text" value="" style="width: 300px;float: left;margin: 10px;" id="surname" placeholder="Surname">
+    <input  type="text" value="" style="width: 300px;float: left;margin: 10px;" id="matric" placeholder="JAMB/Matric No">
+    <input  type="number" value="" style="width: 300px;float: left;margin: 10px;" id="phone" placeholder="Phone No">
+    <input type="email" value="" style="width: 300px;float: left;margin: 10px;" id="email" placeholder="E-Mail">
+    <input  type="password" value="" style="width: 300px;float: left;margin: 10px;" id="password" placeholder="Choose Password">
+    <select style="width: 300px;float: left;margin: 10px;" id="department" onclick="loadList('departments')" >
+
+
+
+    <option>
+Department..
+    </option>
+    <optgroup id="departments" value="Computer Science">
+      Computer Science
+          </optgroup>
+      </select>
+
+
+      <select style="width: 300px;float: left;margin: 10px;"  onclick="loadList('faculties')">
+        <option>
+    Faculty..
+        </option>
+        <optgroup id="faculties" value="Physical Science">
+          Physical Science
+              </optgroup>
+          </select>
+
+          <select style="width: 300px;float: left;margin: 10px;" id="level">
+            <option>
+        Level..
+            </option>
+            <option value="100">
+             100
+                  </option>
+              </select>
+
+              <select style="width: 300px;float: left;margin: 10px;" id="type">
+                <option>
+            Account Type..
+                </option>
+                <option value="Student">
+                  Student
+                      </option>
+                      <option value="Aspirant">
+                        Aspirant
+                            </option>
+                  </select>
+
+                  <select style="width: 300px;float: left;margin: 10px;" id="campus" onclick="loadList('campuses')">
+                    <option>
+                Campus..
+                    </option>
+                    <optgroup id="campuses">
+                      Unical
+                          </optgroup>
+                      </select>
+                      <select style="width: 300px;float: left;margin: 10px;" id="day" >
+                        <option>
+                    Day of Birth..
+                        </option>
+                        <option value="1">
+                          1
+                              </option>
+                          </select>
+
+                          <select style="width: 300px;float: left;margin: 10px;" id="month">
+                            <option>
+                        Month of Birth..
+                            </option>
+                            <option value="1">
+                              1
+                                  </option>
+                              </select>
+
+                              <select style="width: 300px;float: left;margin: 10px;" id="year">
+                                <option>
+                            Year of Birth..
+                                </option>
+                                <option value="1997">
+                                  1997
+                                      </option>
+                                  </select>
+  </fieldset>
+  <br><br>
+  <button onclick="SignUp()" class="btn">Sign Up</button><br><br>
+  <a onclick="changeInterface('login')">    Login</a>
+</footer>
+
+
+<script>
+
+</script>

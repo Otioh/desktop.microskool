@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Desktop Microskool</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<style>
+  
+  .one_third{
+    background-color: white;
+    box-shadow: 0 0 20px lightgray;
+cursor: pointer;
+  }
+  a{
+    cursor: pointer;
+  }
+  dialog{
+    border:none;
+    box-shadow: 0 0 8px gray;
+    border-radius: 10px;
+    cursor: move;
+  }
+  dialog{  
+    animation:animatezoom 0.2s;
+  }
+
+  input{  
+    animation:animatezoom 0.9s;
+  }
+  li{  
+    animation:animatezoom 0.9s;
+  }
+  select{  
+    animation:animatezoom 0.9s;
+  }
+  button{  
+    animation:animatezoom 1.9s;
+  }
+  i{  
+    animation:animatezoom 1.9s;
+  }
+  @keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1); }
+
+  </style>
+<link rel="icon" href="images/demo/micro.png" type="image/png" sizes="20x20"> 
+</head>
+<body id="top">
+<a href="">  <img style="position: fixed;top: 2%;height: 50px;z-index: 100000;" src="images/demo/micro.png"></a>
+<div id="network" style="display:none;z-index:100;position: fixed;top: 0;width: 100%;height: auto;padding: 5px;background-color: #0AC6FC;color: white;">
+ <center> <i class="fas fa-wifi"></i> Lost Internet Connection</center>
+  </div>
+
+<div style="position: fixed;top:0;width: 100%;height: 100%;">
+<div id="holder">
+
+
+</div>
+  <dialog id="loader">
+     <h style="color: rgb(83, 83, 170);font-family: monospace;font-weight: bold;">Microskool Loading</h><hr/>
+    <center>
+    Please Wait<br>
+    <progress></progress>
+  </center>
+  </dialog>
+
+  <dialog id="alert" >
+ <h style="color: rgb(83, 83, 170);font-family: monospace;font-weight: bold;">Microskool Alert</h><hr/>
+ <div id="message">
+
+ </div><br>
+  </dialog>
+
+
+
+  <dialog id="ads" style="background-color: black;">
+    <h style="color: brown;font-family: monospace;font-weight: bold;font-size: 10pt;"> Ads</h>
+   
+<hr/>
+<img src="http://192.168.43.30/microskool2.1/ads/images/imagery.jpg" style="width:300px;">
+    <hr/>
+    <button class="btn inverse" style="color: brown;" onclick="document.getElementById('ads').close();">x</button>
+    </dialog>
+
+
+
+<!-- JAVASCRIPTS -->
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="script/app.js"></script>
+<script src="script/cdn.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>

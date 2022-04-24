@@ -1,0 +1,62 @@
+<style>
+    li{
+        cursor: pointer;
+    }
+    input{
+       
+        border:none;
+    }
+    select{
+     
+        border:none;
+    }
+</style>
+
+<article id="points" class="group">
+    <div class="two_third first">
+              
+        <h style="margin-bottom: 20px;font-weight: bold;font-size: x-large;color: rgb(83, 83, 170);">
+           Assignments for you
+           
+              </h><br><br>
+      
+      <ul class="nospace group" id="alist">
+        <li><span><i class="fas fa-book"></i></span><strong>Course Code</strong><br>Assignment Questions<br><progress></progress><br><strong>Deadline</strong> </li>
+       
+      </ul>
+    </div>
+    <div class="one_third last" style="padding: 15px;">
+        <h3>Post New Assignment</h3>
+<button class="btn" onclick="OpenNewAssign()"><i class="fas fa-edit"></i> New Assignment</button>
+
+    </div>
+  </article>
+
+  <dialog id="newlect" style="width:40%;">
+    <h style="color: rgb(83, 83, 170);font-family: monospace;font-weight: bold;font-size: 15pt;">   New Assignment</h>
+   
+<hr/>
+<button class="btn inverse" style="float: right;margin-right: 20%;" onclick="Open('editcourse*CreateNewCourse');"><i class="fas fa-edit"></i></button>
+<input list="browser" placeholder="Course Code" style="padding: 10px;margin:5px;width:60%;" id="code">
+<datalist id="browser">
+
+</datalist>
+
+<input placeholder="Lecturer Name" style="padding: 10px;margin:5px;width:60%;" id="lecturer">
+<input type="date" placeholder="Deadline" style="padding: 10px;margin:5px;width:60%;" id="deadline">
+
+
+<textarea placeholder="Questions" style="padding: 10px;margin:5px;width:60%;min-height:200px;" id="questions"></textarea>
+<br>
+Select Supporting Image:
+<input  type="file" id="file" name="file" style="padding: 10px;margin:5px;"><br>
+<button class="btn" style="float:right;" onclick="UploadAssign()"><i class="fas fa-upload"></i> Upload</button><br>
+
+    <hr/>
+    <button class="btn inverse" onclick="document.getElementById('newlect').close()">x</button>
+    </dialog>
+
+    
+
+
+  

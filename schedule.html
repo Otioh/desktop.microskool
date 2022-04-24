@@ -1,0 +1,152 @@
+<style>
+    li{
+        cursor: pointer;
+    }
+    input{
+       
+        border:none;
+    }
+    select{
+     
+        border:none;
+    }
+</style>
+
+<article id="points" class="group">
+    <div class="two_third first">
+              
+        <h style="margin-bottom: 20px;font-weight: bold;font-size: x-large;color: rgb(83, 83, 170);">
+           Lecture Schedule
+            
+              </h><br><br>
+     
+            
+<table>
+<thead id="deptitle">Time Table</thead>
+<th>Days</th><th>1st Period</th><th>2nd Period</th><th>3rd Period</th><th>4th Period</th><th>5th Period</th><th>6th Period</th>
+<tbody id="schedule">
+<tr>
+   <td>
+        Monday
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>
+        Tuesday
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>
+        Wednesday
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>
+        Thursday
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>
+        Friday
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>
+        Saturday
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+</tbody>
+</table>
+
+
+    </div>
+    <div class="one_third last" style="padding: 20px;">
+        <button class="btn"><i class="fas fa-edit"></i>  Periods</button>
+    <br><br>
+    <h6 class="heading">Add Period</h6>
+    <input list="browser" placeholder="Course Code" style="padding: 10px;margin:5px;width:60%;" id="code" onclick="popCourse()">
+    <datalist id="browser">
+    <option value="Courses..."></option>
+    </datalist>
+    <select id="time_in">
+        <option>Time In</option>
+        <option value="7AM">7AM</option>
+        <option value="8AM">8AM</option>
+        <option value="9AM">9AM</option>
+        <option value="10AM">10AM</option>
+        <option value="11AM">11AM</option>
+        <option value="12NOON">12NOON</option>
+        <option value="1PM">1PM</option>
+        <option value="2PM">2PM</option>
+        <option value="3PM">3PM</option>
+        <option value="4PM">4PM</option>
+        <option value="5PM">5PM</option>
+        <option value="6PM">6PM</option>
+        <option value="7PM">7PM</option>
+    </select><br>
+    <select id="time_out">
+        <option>Time Out</option>
+        <option value="7AM">7AM</option>
+        <option value="8AM">8AM</option>
+        <option value="9AM">9AM</option>
+        <option value="10AM">10AM</option>
+        <option value="11AM">11AM</option>
+        <option value="12NOON">12NOON</option>
+        <option value="1PM">1PM</option>
+        <option value="2PM">2PM</option>
+        <option value="3PM">3PM</option>
+        <option value="4PM">4PM</option>
+        <option value="5PM">5PM</option>
+        <option value="6PM">6PM</option>
+        <option value="7PM">7PM</option>
+    </select><br>
+    <select id="day">
+        <option>Select Day</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        
+    </select>
+    <input  placeholder="Venue" style="padding: 10px;margin:5px;width:60%;" id="venue" >
+   <button class="btn inverse"><i class="fas fa-save"></i> Save</button>
+    </div>
+  </article>

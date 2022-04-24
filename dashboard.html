@@ -1,0 +1,138 @@
+
+ <div class="wrapper row3" style="height: 80%;background-color: whitesmoke;position: fixed;top:0;overflow: auto;" id="display">
+
+    <main class="hoc container clear" style="margin-top: 0px;"> 
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <section id="services" style="margin:0px;">
+        
+        <h style="margin-bottom: 20px;font-weight: bold;font-size: x-large;color: rgb(83, 83, 170);">
+          Dashboard
+          
+            </h>
+           
+        <ul class="nospace group grid-3">
+          <li class="one_third" onclick="document.getElementById('cbt').showModal();">
+            <article><a ><i class="fas fa-spray-can"><img src="images/demo/unical.jpg"></i></a>
+              <h6 class="heading">General Studies </h6>
+              <p>Use of English & Library Skill I</p>
+              
+             
+              <footer><a >More Details &raquo;</a></footer>
+            </article>
+          </li>
+          <li class="one_third" onclick="Open('calculator')">
+            <article><a ><i class="fas fa-calculator"></i></a>
+              <h6 class="heading">CGPA Calculator</h6>
+              <p>Calculate your GPA with ease </p>
+              <footer><a >More Details &raquo;</a></footer>
+            </article>
+          </li>
+          <li class="one_third" onclick="Open('assignment')">
+            <article><a ><i class="fas fa-book"></i></a>
+              <h6 class="heading">Assignments</h6>
+              <p><i id="dept"></i> for all subscribed courses</p>
+              <footer><a >More Details &raquo;</a></footer>
+            </article>
+          </li>
+          <li class="one_third" onclick="Open('schedule')">
+            <article><a><i class="fas fa-clock"></i></a>
+              <h6 class="heading">Lecture Schedule</h6>
+              <p>Time table for your Department<br></p>
+              <footer><a >More Details &raquo;</a></footer>
+            </article>
+          </li>
+          <li class="one_third" onclick="Open('reference');AllCourse();">
+            <article><a ><i class="fas fa-search-plus"></i></a>
+              <h6 class="heading">Course Reference</h6>
+              <p>Lookup courses and their details<br></p>
+              <footer><a >More Details &raquo;</a></footer>
+            </article>
+          </li>
+          <li class="one_third" onclick="Open('help')">
+            <article><a><i class="fas fa-hands-helping"></i></a>
+              <h6 class="heading">Help Center</h6>
+              <p>Contact Microskool</p>
+              <footer><a >More Details &raquo;</a></footer>
+            </article>
+          </li>
+        </ul>
+  
+      </section>
+      <!-- ################################################################################################ -->
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+  </div>
+  
+  <div class="wrapper row1" style="position: fixed;bottom: 0;padding: 20px;">
+    <section id="ctdetails" class="hoc clear" style="padding: 0;"> 
+  
+  
+      <ul class="nospace clear">
+        <li class="one_quarter first">
+          <div class="block clear"><a ><i class="fas fa-home"  onclick="changeInterface('dashboard')"></i></a> <span><strong>Dashboard</strong>Home</span></div>
+        </li>
+       
+        <li class="one_quarter">
+          <div class="block clear"><a ><i class="fas fa-video" onclick="Open('lectures');"></i></a> <span><strong>Lecture</strong>Summary</span></div>
+        </li>
+        <li class="one_quarter">
+          <div class="block clear"><a ><i class="fas fa-book" onclick="Open('assignment');"></i></a> <span><strong>Assignment</strong> & Assessment</span></div>
+        </li>
+        <li class="one_quarter">
+          <div class="block clear" ><a ><i class="fas fa-user" onclick="Open('profile')"></i></a> <span><strong id="logId">User</strong> Account</span></div>
+        </li>
+        
+      </ul>
+      
+      <ul class="nospace clear" style="margin-top: 20px;">
+        <li class="one_quarter first">
+          <div class="block clear"><a ><i class="fas fa-school" onclick="Open('pastquest')"></i></a> <span><strong>Past</strong>Questions</span></div>
+        </li>
+       
+        <li class="one_quarter">
+          <div class="block clear"><a ><i class="fas fa-clock" onclick="Open('schedule');"></i></a> <span><strong>Lecture</strong>Schedule</span></div>
+        </li>
+        <li class="one_quarter">
+          <div class="block clear"><a ><i class="fas fa-search-plus" onclick="Open('reference');"></i></a> <span><strong>Course</strong> Reference</span></div>
+        </li>
+        <li class="one_quarter">
+          <div class="block clear"><a ><i class="fas fa-hands-helping" onclick="Open('help')"></i></a> <span><strong>Help</strong> Center</span></div>
+        </li>
+        
+      </ul>
+    </section>
+  </div>
+  
+  <dialog id="cbt" >
+    <h style="color: rgb(83, 83, 170);font-family: monospace;font-weight: bold;font-size: x-large;">Choose Course for CBT Practice</h><hr/>
+  
+<ul>
+  <li style="cursor: pointer;margin: 8px;">
+<img src="images/demo/unical.jpg" style="width: 50px;" onclick="changeInterface('cbt')"> Use of English & Library Skill I<br></li>
+
+<li style="cursor: pointer;margin: 8px;">
+  <img src="images/demo/unical.jpg" style="width: 50px;"  onclick="Open('cbt')"> Anti-Corruption I<br></li>
+
+  <li style="cursor: pointer;margin: 8px;">
+    <img src="images/demo/unical.jpg" style="width: 50px;"  onclick="Open('cbt')">History and Philosophy of Science<br></li>
+
+    <li style="cursor: pointer;margin: 8px;">
+      <img src="images/demo/unical.jpg" style="width: 50px;"  onclick="Open('cbt')"> Philosophy & Logic<br></li>
+
+      <li style="cursor: pointer;margin: 8px;">
+        <img src="images/demo/unical.jpg" style="width: 50px;"  onclick="Open('cbt')"> Basic Communication in French<br></li>
+
+        <li style="cursor: pointer;margin: 8px;">
+          <img src="images/demo/unical.jpg" style="width: 50px;"  onclick="Open('cbt')"> Anti-Corruption II<br></li>
+          <li style="cursor: pointer;margin: 8px;">
+            <img src="images/demo/unical.jpg" style="width: 50px;"  onclick="Open('cbt')"> Use of English & Library Skill II<br></li>
+            <li style="cursor: pointer;margin: 8px;">
+              <img src="images/demo/unical.jpg" style="width: 50px;"  onclick="Open('cbt')"> Introduction to Computer Programming<br></li>
+</ul>
+<hr/>
+<button class="btn inverse"  onclick="document.getElementById('cbt').close();">x</button>
+
+     </dialog>

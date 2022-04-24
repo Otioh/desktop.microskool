@@ -1,0 +1,62 @@
+<style>
+    li{
+        cursor: pointer;
+    }
+    input{
+       
+        border:none;
+    }
+    select{
+     
+        border:none;
+    }
+</style>
+
+<article id="points" class="group">
+    <div class="two_third first">
+              
+        <h style="margin-bottom: 20px;font-weight: bold;font-size: x-large;color: rgb(83, 83, 170);">
+            Profile
+            
+              </h><br><br>
+      <h6 class="heading" id="name">Your Name</h6>
+      
+      <ul class="nospace group">
+        <li><span><i class="fas fa-user"></i></span><input id="matric" onkeyup="UpdateProfile()" value='Matric'></b></li>
+        <li><span><i class="fas fa-envelope"></i></span><input id="email" onkeyup="UpdateProfile()" value='E-Mail'></li>
+        <li><span><i class="fas fa-phone"></i></span> <input id="phone" onkeyup="UpdateProfile()" value='Phone'></li>
+        <li><span><i class="fas fa-calendar"></i></span><b id="dob">DOB</b></li>
+        <li><span><i class="fas fa-chevron-up"></i></span><select id="facultyx" onchange="UpdateProfile()" > <option id="faculty"> Faculty</option><optgroup id="faculties">Select Others</optgroup></select></b></li>
+        <li><span><i class="fas fa-school"></i></span><select id="departmentx" onchange="UpdateProfile()"><option id="department">Department</option><optgroup id="departments">Select Others</optgroup></select>  </b></li>
+        <li><span><i class="fas fa-clock"></i></span><select id="levelx" onchange="UpdateProfile()" ><option id="level">Level</option><option value="100">100</option><option value="200">200</option><option value="300">300</option><option value="400">400</option>  </select></li>
+        <li onclick=" OpenPassword();"><span><i class="fas fa-user"></i></span> Change Password</li>
+        <li onclick="Open('editcourse')"><span><i class="fas fa-edit"></i></span> Edit Courses</li>
+        <li onclick="Logout()"><span><i class="fas fa-lock"></i></span> Logout</li>
+      </ul>
+    </div>
+    <div class="one_third last" onclick="UploadImage();"><a class="imgover" onclick="UploadImage();"><img id="proimage" style="border-radius: 50%;" src="images/demo/348x394.png" alt=""></a></div>
+  </article>
+
+
+
+  <dialog id="password" style="padding: 20px;">
+    <h style="color: rgb(83, 83, 170);font-family: monospace;font-weight: bold;">Change Password</h><hr/>
+   <input type="password" class="btmspace-15" id="newpass" placeholder="New Password">
+   <input class="btmspace-15" id="confirmpass" placeholder="Confirm Password">
+   <input type="password" class="btmspace-15" id="oldpass" placeholder="Current Password">
+   <button onclick="ChangePassword();" class="btn"><i class="fas fa-save"></i> Save</button>
+   <button onclick="document.getElementById('password').close();" class="btn inverse"><i class="fa-stop"></i>Cancel</button>
+    <br>
+     </dialog>
+
+
+     
+  <dialog id="profileImage" style="padding: 20px;">
+    <h style="color: rgb(83, 83, 170);font-family: monospace;font-weight: bold;">Upload Profile Image</h><hr/>
+   
+   <input type="file" class="btmspace-15" id="file" >
+ 
+   <button onclick="readURL()" class="btn"><i class="fas fa-upload"></i> Upload</button>
+   <button onclick="document.getElementById('profileImage').close();" class="btn inverse"><i class="fa-stop"></i>Cancel</button>
+    <br>
+     </dialog>
