@@ -6,8 +6,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="layout/styles/bootstrap.min.css">
 <style>
-  
+  fieldset{
+    background-color: white;
+    padding: 25px;
+    border-radius: 7px;
+    box-shadow: 0 0 14px lightgray;
+  }
+
+  legend{
+    background-color: rgb(83, 83, 170);
+    color: white;
+    padding: 10px;
+    border-radius: 
+    7px;
+  }
   .one_third{
     background-color: white;
     box-shadow: 0 0 15px lightgray;
@@ -62,14 +76,19 @@ cursor: pointer;
     <center>
     Please Wait<br>
     <progress></progress>
-  </center>
+  </center><br>
+  <button class="btn btn-outline-primary" style="width: 100%;" onclick="document.getElementById('loader').close()">Stop</button>
   </dialog>
 
-  <dialog id="alert" >
- <h style="color: rgb(83, 83, 170);font-family: monospace;font-weight: bold;">Microskool Alert</h><hr/>
- <div id="message">
+  <dialog id="alert" class="alert-light" style="padding: 0;">
+   
+    <div class="header" style="background-color:lightgray;margin: 0;color: black;padding: 8px;padding-left: 15px;padding-right: 15px;">
+      <img src="images/demo/micro.png" style="height: 30px;margin-right: 20px;"><h id="alertTitle" style="font-weight: bold;">
+     Success</h>
+      </div>
+ <div id="message"  class="alert-light" style="margin: 0;min-height: 50px;padding: 10px;">
 
- </div><br>
+ </div>
   </dialog>
 
 

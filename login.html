@@ -1,14 +1,23 @@
 <footer id="footer" class="hoc clear" > 
     <fieldset>
       <legend >Login:</legend>
- 
-      <input type="email" value="" style="width: 300px;margin: 10px;" placeholder="E-Mail" id="email">
-      <input  type="password" value="" style="width: 300px;margin: 10px;" placeholder=" Password" id="password">
-      
+ <div class="form-group">
+   <label for="email">Enter E-Mail</label>
+  <input type="email" value="" class="form-control" style="width: 300px;margin: 10px;" placeholder="E-Mail" id="email">
+    
+ </div>
+ <div class="form-group">
+  <label for="password">Enter Password</label>
+        <input class="form-control"  type="password" value="" style="width: 300px;margin: 10px;" placeholder=" Password" id="password">
+      </div> 
+
+      <br>
+      <button onclick="Login()" class="btn">Login</button><br><br>
+  <a onclick="changeInterface('signup')">    Create Account</a>
+  <br>
+  <a onclick="changeInterface('reset')">    Recover Password</a>
+
+  
     </fieldset>
-    <br>
-    <button onclick="Login()" class="btn">Login</button><br><br>
-<a onclick="changeInterface('signup')">    Create Account</a>
-<br>
-<a onclick="changeInterface('reset')">    Recover Password</a>
-  </footer>
+ 
+</footer>

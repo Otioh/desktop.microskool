@@ -29,12 +29,12 @@
         <li><span><i class="fas fa-chevron-up"></i></span><select id="facultyx" onchange="UpdateProfile()" > <option id="faculty"> Faculty</option><optgroup id="faculties">Select Others</optgroup></select></b></li>
         <li><span><i class="fas fa-school"></i></span><select id="departmentx" onchange="UpdateProfile()"><option id="department">Department</option><optgroup id="departments">Select Others</optgroup></select>  </b></li>
         <li><span><i class="fas fa-clock"></i></span><select id="levelx" onchange="UpdateProfile()" ><option id="level">Level</option><option value="100">100</option><option value="200">200</option><option value="300">300</option><option value="400">400</option>  </select></li>
-        <li onclick=" OpenPassword();"><span><i class="fas fa-user"></i></span> Change Password</li>
-        <li onclick="Open('editcourse')"><span><i class="fas fa-edit"></i></span> Edit Courses</li>
-        <li onclick="Logout()"><span><i class="fas fa-lock"></i></span> Logout</li>
+        <li ><span><a href="#/profile/ResetPassword"><i class="fas fa-user"></i></span> Change Password</li></a>
+        <a href="#/editcourse">  <li ><span><i class="fas fa-edit"></i></span> Edit Courses</li></a>
+        <a href="#/logout">   <li onclick="Logout()"><span><i class="fas fa-lock"></i></span> Logout</li></a>
       </ul>
     </div>
-    <div class="one_third last" onclick="UploadImage();"><a class="imgover" onclick="UploadImage();"><img id="proimage" style="border-radius: 50%;" src="images/demo/348x394.png" alt=""></a></div>
+    <a href="#/profile/UploadProfileImage">  <div class="one_third last" ><a class="imgover" ><img id="proimage" style="border-radius: 50%;" src="images/demo/348x394.png" alt=""></a></div>
   </article>
 
 
@@ -45,7 +45,8 @@
    <input class="btmspace-15" id="confirmpass" placeholder="Confirm Password">
    <input type="password" class="btmspace-15" id="oldpass" placeholder="Current Password">
    <button onclick="ChangePassword();" class="btn"><i class="fas fa-save"></i> Save</button>
-   <button onclick="document.getElementById('password').close();" class="btn inverse"><i class="fa-stop"></i>Cancel</button>
+   <a href="javascript:history.back()">
+   <button onclick="document.getElementById('password').close();" class="btn inverse"><i class="fa-stop"></i>Cancel</button></a>
     <br>
      </dialog>
 
@@ -57,6 +58,6 @@
    <input type="file" class="btmspace-15" id="file" >
  
    <button onclick="readURL()" class="btn"><i class="fas fa-upload"></i> Upload</button>
-   <button onclick="document.getElementById('profileImage').close();" class="btn inverse"><i class="fa-stop"></i>Cancel</button>
+<a href="javascript:history.go(-1)">   <button class="btn inverse"><i class="fa-stop"></i>Cancel</button></a>
     <br>
      </dialog>

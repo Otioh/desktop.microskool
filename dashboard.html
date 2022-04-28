@@ -8,32 +8,38 @@
         
         <h style="margin-bottom: 20px;font-weight: bold;font-size: x-large;color: rgb(83, 83, 170);">
           Dashboard
-          
+        
             </h>
            
         <ul class="nospace group grid-3">
-          <li class="one_third" onclick="document.getElementById('cbt').showModal();">
-            <article><a ><i class="fas fa-spray-can"><img src="images/demo/unical.jpg"></i></a>
+         <li class="one_third" >
+          <a href="#/cbt">  
+            <article><i class="fas fa-spray-can"><img src="images/demo/unical.jpg"></i>
               <h6 class="heading">General Studies </h6>
               <p>Use of English & Library Skill I</p>
               
              
               <footer><a >More Details &raquo;</a></footer>
+              </a>
             </article>
           </li>
-          <li class="one_third" onclick="Open('calculator')">
-            <article><a ><i class="fas fa-calculator"></i></a>
+          <li class="one_third" >
+            <a href="#/calculator">  
+            <article><i class="fas fa-calculator"></i>
               <h6 class="heading">CGPA Calculator</h6>
               <p>Calculate your GPA with ease </p>
               <footer><a >More Details &raquo;</a></footer>
             </article>
+          </a>
           </li>
           <li class="one_third" onclick="Open('assignment')">
-            <article><a ><i class="fas fa-book"></i></a>
+            <a href="#/calculator"> 
+            <article><i class="fas fa-book"></i>
               <h6 class="heading">Assignments</h6>
               <p><i id="dept"></i> for all subscribed courses</p>
               <footer><a >More Details &raquo;</a></footer>
             </article>
+          </a>
           </li>
           <li class="one_third" onclick="Open('schedule')">
             <article><a><i class="fas fa-clock"></i></a>
@@ -68,38 +74,38 @@
   
   <div class="wrapper row1" style="position: fixed;bottom: 0;padding: 20px;">
     <section id="ctdetails" class="hoc clear" style="padding: 0;"> 
-  
+ 
   
       <ul class="nospace clear">
         <li class="one_quarter first">
-          <div class="block clear"><a ><i class="fas fa-home"  onclick="changeInterface('dashboard')"></i></a> <span><strong>Dashboard</strong>Home</span></div>
+          <div class="block clear"><a href="#/dashboard"><i class="fas fa-home" ></i></a> <span><strong>Dashboard</strong>Home</span></div>
         </li>
        
         <li class="one_quarter">
-          <div class="block clear"><a ><i class="fas fa-video" onclick="Open('lectures');"></i></a> <span><strong>Lecture</strong>Summary</span></div>
+          <div class="block clear"><a href="#/lectures"><i class="fas fa-video" ></i></a> <span><strong>Lecture</strong>Summary</span></div>
         </li>
         <li class="one_quarter">
-          <div class="block clear"><a ><i class="fas fa-book" onclick="Open('assignment');"></i></a> <span><strong>Assignment</strong> & Assessment</span></div>
+          <div class="block clear"><a href="#/assignment"><i class="fas fa-book" ></i></a> <span><strong>Assignment</strong> & Assessment</span></div>
         </li>
         <li class="one_quarter">
-          <div class="block clear" ><a ><i class="fas fa-user" onclick="Open('profile')"></i></a> <span><strong id="logId">User</strong> Account</span></div>
+          <div class="block clear" ><a href="#/profile"><i class="fas fa-user" ></i></a> <span><strong id="logId">User</strong> Account</span></div>
         </li>
         
       </ul>
       
       <ul class="nospace clear" style="margin-top: 20px;">
         <li class="one_quarter first">
-          <div class="block clear"><a ><i class="fas fa-school" onclick="Open('pastquest')"></i></a> <span><strong>Past</strong>Questions</span></div>
+          <div class="block clear"><a href="#/pastquest"><i class="fas fa-school" ></i></a> <span><strong>Past</strong>Questions</span></div>
         </li>
        
         <li class="one_quarter">
-          <div class="block clear"><a ><i class="fas fa-clock" onclick="Open('schedule');"></i></a> <span><strong>Lecture</strong>Schedule</span></div>
+          <div class="block clear"><a href="#/schedule"><i class="fas fa-clock" ></i></a> <span><strong>Lecture</strong>Schedule</span></div>
         </li>
         <li class="one_quarter">
-          <div class="block clear"><a ><i class="fas fa-search-plus" onclick="Open('reference');"></i></a> <span><strong>Course</strong> Reference</span></div>
+          <div class="block clear"><a href="#/reference"><i class="fas fa-search-plus" ></i></a> <span><strong>Course</strong> Reference</span></div>
         </li>
         <li class="one_quarter">
-          <div class="block clear"><a ><i class="fas fa-hands-helping" onclick="Open('help')"></i></a> <span><strong>Help</strong> Center</span></div>
+          <div class="block clear"><a href="#/help"><i class="fas fa-hands-helping" ></i></a> <span><strong>Help</strong> Center</span></div>
         </li>
         
       </ul>

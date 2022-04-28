@@ -27,9 +27,9 @@ $myLevel=$rows['level'];
 $myMatric=$rows['code'];
 
 
-        $sql = "select * from courses where code='$myMatric' && level='$myLevel'";
-        $result = mysqli_query($conn, $sql);
-        $resultCheck = mysqli_num_rows($result);
+        $sqls = "select * from courses where code='$myMatric' && level='$myLevel'";
+        $results = mysqli_query($conn, $sqls);
+        $resultCheck = mysqli_num_rows($results);
         if($resultCheck > 0){
   
             

@@ -1,17 +1,22 @@
+
+
+
+
+
 var Current=window.location.hash.substr(1);
-var now=window.location.hash;
-Install();
+let landUrl=window.location.hash;
+
+if(sessionStorage.getItem('url')){
+CheckSession();
+}else{
+    Install();
+}
+
 window.addEventListener('hashchange', function(){
-   
-var Current= window.location.hash.substr(1);
- let str = Current;
- const myArr = str.split("*");
- var url=myArr[0]; 
- var action=myArr[1];
- Open(url);
- setTimeout(() => {
-     Do(action);    
- }, 1000);
+
+var Current= window.location.hash;
+ let address = Current;
+ Route(address);
 
 
 
@@ -42,7 +47,7 @@ function StopLoader(){
         
     document.getElementById('loader').close();
     
-    }, 2000);
+    }, 1000);
 
     }
 
@@ -67,7 +72,7 @@ Year=document.getElementById('year').value;
 Email=document.getElementById('email').value;
 
 if(firstName=="" || MiddleName=="" || Surname=="" || Matric=="" || Department=="Department.." || Faculty=="Faculty.." || Level=="Level.." || Type=="Account Type.." || campus=="Campus.." || Day=="Day of Birth.."|| Month=="Month of Birth.." || Year=="Year of Birth.."|| Email==""|| Password==""){
-    openAlert('All Fields are required');
+    openAlert('All Fields are required', 'Required Field', 'alert-warning');
    
 }else{
     StartLoader();
@@ -76,7 +81,7 @@ $.get('server/signup.php?firstname='+firstName+'&&surname='+Surname+'&&middlenam
     
    
     StopLoader();
-    openAlert(data);
+    openAlert(data, 'Message', 'alert-light');
 
 
 
@@ -94,7 +99,7 @@ Password=document.getElementById('password').value;
 Email=document.getElementById('email').value;
 
 if(Password=="" || Email==""){
-    openAlert('All Fields are required');
+    openAlert('All Fields are required', 'Required Field', 'alert-warning');
     
     StopLoader();
 }else{
@@ -109,7 +114,7 @@ $.get('server/login.php?email='+Email+'&&password='+Password, function(data){
     }else{
    
     StopLoader();
-    openAlert(data);
+    openAlert(data, 'Message', 'alert-warning');
     }
 
 
@@ -121,8 +126,14 @@ $.get('server/login.php?email='+Email+'&&password='+Password, function(data){
 }
 
 
-function openAlert(params) {
-    document.getElementById('message').innerHTML=params;
+function openAlert(message, title, type) {
+    document.getElementById('message').innerHTML=message;
+    document.getElementById('alertTitle').innerHTML=title;
+    document.getElementById('message').classList.remove('alert-danger');
+    document.getElementById('message').classList.remove('alert-light');
+    document.getElementById('message').classList.remove('alert-success');
+    document.getElementById('message').classList.remove('alert-warning');
+    document.getElementById('message').classList.add(type);
     document.getElementById('alert').showModal();
     closeAlert();
 }
@@ -144,7 +155,7 @@ function changeInterface(params) {
         
       
         document.getElementById('holder').innerHTML=data;
-        window.history.pushState({}, null, '#'+params);
+        window.history.pushState({}, null, '#/'+params);
         Name('3000');
 
 
@@ -176,25 +187,19 @@ function Name(params) {
 
 function CheckSession() {
     if(getSavedValue('email')==""){
-        openAlert('No Session');
+        openAlert('No Session, please login', 'Sesssion Error');
         changeInterface('login');
     }else{
+     
         changeInterface('dashboard');
+        if(landUrl){
+            window.history.pushState({}, null, landUrl);
+            Route(landUrl);
+        }
        Profile();
        AllCourse();
         Name('12000'); 
-        setTimeout(() => {
-
-            let str = Current;
-            const myArr = str.split("*");
-            var url=myArr[0]; 
-            var action=myArr[1];
-            Open(Current);
-            setTimeout(() => {
-                Do(action);    
-            }, 1000);
-
-        }, 200);
+    
     }
 }
 
@@ -203,8 +208,7 @@ function CheckSession() {
 
 
 function Profile() {
-    alert(getSavedValue('email'));
-
+   
     $.get('server/profile.php?email='+getSavedValue('email'), function(data){
         
         var obj = JSON.parse(data);
@@ -249,38 +253,28 @@ function Profile() {
 
 function Open(params) {
 
-    now='#'+params;
-    let str = params;
-    const myArr = str.split("*");
-    var url=myArr[0]; 
-    var action=myArr[1]; 
-   
 
-   if(url=="lectures"){
+ 
+StartLoader();
+   if(params=="lectures"){
     $.get('server/lectures.php', function(data){
-        
-        window.history.pushState({}, null, '#'+params);
+       
         document.getElementById('display').innerHTML=data;
 
 
-loadData(url);
-setTimeout(() => {
-    Do(action);    
-}, 1000);
+loadData(params);
 
     });
-   }else if(url=="editcourse"){
+
+   }else if(params=="editcourse"){
    
     $.get('server/courses.php?faculty='+getSavedValue('faculty')+'&&level='+getSavedValue('level')+'&&matric='+getSavedValue('matric'), function(data){
         
-        window.history.pushState({}, null, '#'+params);
+       
         document.getElementById('display').innerHTML=data;
 
 
-loadData(url);
-setTimeout(() => {
-    Do(action);    
-}, 1000);
+loadData(params);
 
 
     });
@@ -289,19 +283,16 @@ setTimeout(() => {
    
    
    else{
-    $.get(url+'.html', function(data){
+    $.get(params+'.html', function(data){
         
-        window.history.pushState({}, null, '#'+params);
         document.getElementById('display').innerHTML=data;
 
 
-loadData(url);
-setTimeout(() => {
-    Do(action);    
-}, 1000);
+loadData(params);
+
 
     });
-    if(url=="forum"){
+    if(params=="forum"){
         loadMessage();
 
     }
@@ -309,6 +300,7 @@ setTimeout(() => {
 Assignments();
 LoadSchedule();
 AllCourse();
+
 
 }
 
@@ -389,7 +381,7 @@ CheckSession();
 function EditCourse() {
   
     $.get('server/courses.php?faculty='+getSavedValue('faculty')+'&&level='+getSavedValue('level')+'&&matric='+getSavedValue('matric'), function(data){
-        window.history.pushState({}, null, '#editcourse');
+
     
         document.getElementById('display').innerHTML=data;
 
@@ -402,7 +394,7 @@ function EditCourse() {
 function Add(params) {
 
  if(document.getElementById('ccode').value==""){
-    openAlert("Course code is empty");
+    openAlert("Course code is empty", 'Required Field');
  }else{
 
     
@@ -412,7 +404,7 @@ function Add(params) {
             StartLoader();
           StopLoader();
             document.getElementById("newcourse").showModal();
-            openAlert("Course does not exist, procees to create course");
+            openAlert("Course does not exist, procees to create course", 'Error');
             loadList('faculties');
             loadList('departments');
             document.getElementById("c_code").value= document.getElementById("ccode").value;
@@ -435,7 +427,7 @@ function Add(params) {
 
 function SaveCourse() {
     if(document.getElementById('c_code').value==""){
-        openAlert("Course code not provided");
+        openAlert("Course code not provided", 'Required Field');
     }else{
  StartLoader();
     $.get('server/savecourse.php?code='+document.getElementById("c_code").value+'&&title='+document.getElementById("c_title").value+'&&faculty='+document.getElementById("c_faculty").value+'&&department='+document.getElementById("c_department").value+'&&level='+document.getElementById("c_level").value, function(data){
@@ -443,7 +435,7 @@ function SaveCourse() {
             StartLoader();
           StopLoader();
             document.getElementById("newcourse").showModal();
-            openAlert("Course does not exist, procees to create course");
+            openAlert("Course does not exist, procees to create course" , 'Required Field');
             loadList('faculties');
             loadList('departments');
             document.getElementById("c_code").value= document.getElementById("ccode").value;
@@ -453,7 +445,7 @@ function SaveCourse() {
     document.getElementById("newcourse").close();
 
     StopLoader();
-    openAlert("New Course Created, you can now Add");
+    openAlert("New Course Created, you can now Add", 'Required Field', 'alert-success');
 }else{
     openAlert(data);
     StopLoader();
@@ -466,7 +458,7 @@ function SaveCourse() {
 
 function ChangePassword() {
     if(document.getElementById('newpass').value=="" || document.getElementById('confirmpass').value=="" || document.getElementById('oldpass').value==""){
-        openAlert("All Fields are required");
+        openAlert("All Fields are required", 'Required Field', 'alert-warning');
 
     }else{
 
@@ -478,7 +470,7 @@ if(document.getElementById('newpass').value==document.getElementById('confirmpas
              
              StopLoader();
               
-               openAlert("New Password is same with existing Password");
+               openAlert("New Password is same with existing Password", 'Error', 'alert-warning');
               
               
            }else if(data=="success")
@@ -486,25 +478,25 @@ if(document.getElementById('newpass').value==document.getElementById('confirmpas
       
    
        StopLoader();
-       openAlert("Password Changed Successfully");
+       openAlert("Password Changed Successfully", 'Success Message', 'alert-success');
    }else if(data=="wrong")
    {  
       
    
        StopLoader();
-       openAlert("Current Password is Wrong");
+       openAlert("Current Password is Wrong",  'Error', 'alert-warning');
    }
    
    else{
     StopLoader();
-       openAlert(data);
+       openAlert(data, 'Message', 'alert-warning');
        
    }
    
    
        });
     }else{
-        openAlert("Password Confirmation does not match!");
+        openAlert("Password Confirmation does not match!", 'Error', 'alert-warning');
 
     }
     }
@@ -545,7 +537,7 @@ function readURL() {
      success:function(data)
      {
         StopLoader();
-         openAlert(data);
+         openAlert(data, 'Your Data', 'alert-light');
          Profile();
          Open('profile');
      }
@@ -653,7 +645,7 @@ function readURL() {
 
 function Recover() {
     if(document.getElementById('email').value=="" || document.getElementById('phone').value=="" || document.getElementById('matric').value==""){
-        openAlert("All Fields are required");
+        openAlert("All Fields are required", 'Required Field', 'alert-warning');
 
     }else{
 
@@ -663,7 +655,7 @@ function Recover() {
              
              StopLoader();
               
-               openAlert(data);
+               openAlert(data, 'Your Data', 'alert-light');
               
       
     });
@@ -699,7 +691,7 @@ function UploadLecture() {
              success:function(data)
              {
                 StopLoader();
-                 openAlert(data);
+                 openAlert(data, 'Your Data', 'alert-light');
                  document.getElementById('newlect').close();
              }
             });      
@@ -817,7 +809,7 @@ function UploadAssign() {
              success:function(data)
              {
                 StopLoader();
-                 openAlert(data);
+                 openAlert(data, 'Message', 'alert-light');
                  document.getElementById('newlect').close();
              }
             });
@@ -899,26 +891,102 @@ UploadImage();
 }
 function OpenPassword() {
    
-    window.history.pushState({}, null, now+'*ResetPassword');
+
     document.getElementById('password').showModal();
   
 
 }
 
 function UploadImage() {
-    window.history.pushState({}, null, now+'*UploadProfileImage');
+  
     document.getElementById('profileImage').showModal();
 }
 
 
 function OpenNewAssign() {
-    window.history.pushState({}, null, now+'*NewAssignment');
+ 
     document.getElementById('newlect').showModal();
     popCourse();
 }
 
 function OpenNewLecture() {
-    window.history.pushState({}, null, now+'*NewLecture');
+
     document.getElementById('newlect').showModal();
     popCourse();
+}
+
+
+
+function Route(params) {
+    const myArr = params.split("/");
+ let url=myArr[1]; 
+
+ let action=myArr[2];
+ let subaction=myArr[3];
+
+if(url==sessionStorage.getItem('url')){
+    
+
+}else{
+    Open(url);
+}
+
+
+ setTimeout(() => {
+     if(action){
+     Do(action);
+    }    
+ }, 1000);
+
+ setTimeout(() => {
+     if(subaction){
+    Do(subaction); 
+     }   
+}, 2000);
+
+ 
+
+ sessionStorage.setItem('url', url);
+
+}
+
+
+
+
+
+
+function Calculate(params) {
+    openAlert('Enter all your grades', "Grades Incomplete", 'alert-warning');
+}
+CheckNetwork();
+
+function CheckNetwork(){
+let result ='';
+
+    $.get('http://192.168.43.31/desktop.microskool/server/check.php', function(data){
+        
+        if(data=='success'){
+result='success';
+            StopLoader();
+            NetworkError('none');
+        }else{
+            result='fail';
+NetworkError('block');
+
+        }
+     
+     
+     
+     });
+     
+return result;
+}
+
+function NetworkError(status) {
+    document.getElementById('network').style.display=status;
+    if(status=='block'){
+ setInterval(() => {
+     
+ }, 1000);       
+    }
 }
